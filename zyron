@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zyron</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+
+body{
+display:flex;
+height:100vh;
+background:#0d1117;
+color:#fff;
+}
+
+aside{
+width:240px;
+background:#161b22;
+padding:20px;
+display:none;
+}
+
+aside h1{
+color:#4ea1ff;
+margin-bottom:25px;
+}
+
+aside button{
+width:100%;
+padding:14px;
+margin:8px 0;
+border:none;
+border-radius:8px;
+background:#202938;
+color:white;
+cursor:pointer;
+transition:.3s;
+}
+
+aside button:hover{
+background:#2563eb;
+}
+
+main{
+flex:1;
+padding:35px;
+display:none;
+overflow:auto;
+}
+
+h2{
+margin-bottom:20px;
+color:#4ea1ff;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.card{
+background:#1c2128;
+padding:20px;
+border-radius:12px;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+box-shadow:0 0 15px rgba(37,99,235,.5);
+}
+
+.login{
+position:fixed;
+inset:0;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#2563eb,#6d28d9);
+}
+
+.box{
+background:#161b22;
+padding:35px;
+width:320px;
+border-radius:15px;
+text-align:center;
+}
+
+.box h1{
+margin-bottom:20px;
+}
+
+.box input{
+width:100%;
+padding:12px;
+margin:10px 0;
+background:#222;
+border:none;
+color:white;
+border-radius:8px;
+}
+
+.box button{
+width:100%;
+padding:12px;
+margin-top:10px;
+background:#2563eb;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+.box button:hover{
+background:#3b82f6;
+}
+
+footer{
+margin-top:40px;
+text-align:center;
+color:#888;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="login" id="login">
+
+<div class="box">
+
+<h1>Zyron</h1>
+
+<input id="user" placeholder="Usuário">
+
+<input id="pass" type="password" placeholder="Senha">
+
+<button onclick="entrar()">Entrar</button>
+
+</div>
+
+</div>
+
+<aside id="menu">
+
+<h1>Zyron</h1>
+
+<button onclick="dashboard()">🏠 Dashboard</button>
+
+<button onclick="novidades()">📰 Novidades</button>
+
+<button onclick="projetos()">🚀 Projetos</button>
+
+<button onclick="tecnologia()">💻 Tecnologia</button>
+
+<button onclick="sair()">🚪 Sair</button>
+
+</aside>
+
+<main id="principal">
+
+<h2 id="titulo">Dashboard</h2>
+
+<div id="conteudo"></div>
+
+<footer>
+© 2026 Zyron
+</footer>
+
+</main>
+
+<script>
+
+function entrar(){
+
+if(user.value=="" || pass.value==""){
+alert("Digite usuário e senha.");
+return;
+}
+
+login.style.display="none";
+menu.style.display="block";
+principal.style.display="block";
+
+dashboard();
+
+}
+
+function dashboard(){
+
+titulo.innerHTML="📦 Produtos";
+
+conteudo.innerHTML=`
+
+<div class="cards">
+
+<div class="card">
+<h3>Zyron Premium</h3>
+<p>Plano completo com recursos exclusivos.</p>
+</div>
+
+<div class="card">
+<h3>Cloud</h3>
+<p>Armazenamento rápido e seguro.</p>
+</div>
+
+<div class="card">
+<h3>IA</h3>
+<p>Ferramentas inteligentes para produtividade.</p>
+</div>
+
+<div class="card">
+<h3>Segurança</h3>
+<p>Proteção de dados e backups automáticos.</p>
+</div>
+
+</div>
+
+`;
+
+}
+
+function novidades(){
+
+titulo.innerHTML="📰 Novidades";
+
+conteudo.innerHTML=`
+
+<div class="card">
+
+<h3>Resumo do Zyron</h3>
+
+<p>
+
+O Zyron é uma plataforma moderna desenvolvida para reunir tecnologia,
+inovação e produtividade em um único ambiente. O objetivo é oferecer
+uma experiência rápida, organizada e fácil de utilizar para todos os
+usuários.
+
+</p>
+
+</div>
+
+`;
+
+}
+
+function projetos(){
+
+titulo.innerHTML="🚀 Projetos";
+
+conteudo.innerHTML=`
+
+<div class="card">
+
+<h3>Projetos Zyron</h3>
+
+<p>
+
+Os projetos da Zyron buscam criar soluções modernas para pessoas e
+empresas. O foco é desenvolver sistemas rápidos, seguros e intuitivos,
+utilizando as melhores práticas de programação e inovação tecnológica.
+
+</p>
+
+</div>
+
+`;
+
+}
+
+function tecnologia(){
+
+titulo.innerHTML="💻 Tecnologia";
+
+conteudo.innerHTML=`
+
+<div class="card">
+
+<h3>Como funciona</h3>
+
+<p>
+
+O Zyron utiliza HTML para estruturar as páginas, CSS para criar um
+visual moderno e responsivo e JavaScript para tornar o site dinâmico.
+No futuro poderá utilizar Firebase, Supabase ou Node.js para login,
+banco de dados e armazenamento em nuvem.
+
+</p>
+
+</div>
+
+`;
+
+}
+
+function sair(){
+
+location.reload();
+
+}
+
+</script>
+
+</body>
+</html>
